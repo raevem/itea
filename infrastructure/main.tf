@@ -13,11 +13,19 @@ provider "aws" {
   region  = "us-west-2"
 }
 
-resource "aws_instance" "jenkins_server" {
-  ami           = "ami-0cea098ed2ac54925"
-  instance_type = "t2.micro"
+#resource "aws_instance" "jenkins_server" {
+#  ami           = "ami-0cea098ed2ac54925"
+#  instance_type = "t2.micro"
+#
+#  tags = {
+#    Name = "JenkinsServer"
+#  }
+#}
+resource "aws_ecs_cluster" "foo" {
+  name = "GoLang"
 
-  tags = {
-    Name = "JenkinsServer2"
+  setting {
+    name  = "containerForGoLangServer"
+    value = "enabled"
   }
 }
