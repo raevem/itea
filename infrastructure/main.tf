@@ -21,9 +21,8 @@ provider "aws" {
 #    Name = "JenkinsServer"
 #  }
 #}
-resource "aws_ecs_cluster" "foo" {
+resource "aws_ecs_cluster" "dockercluster" {
   name = "GoLang"
-
   setting {
     name  = "containerForGoLangServer"
     value = "enabled"
